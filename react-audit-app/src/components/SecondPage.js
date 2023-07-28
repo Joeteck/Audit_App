@@ -1,4 +1,3 @@
-// src/components/SecondPage.js
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,12 +12,20 @@ const SummaryItem = styled.div`
   margin-bottom: 10px;
 `;
 
-const SecondPage = () => {
+const SecondPage = (props) => {
   const location = useLocation();
-  const formData = location.state;
+  const formData = location.state.formData
+  console.log("location")
+  console.log(location)
+  console.log("formData")
+  console.log(formData)
+  console.log("formData.fullName")
+  console.log(formData.fullName)
+  console.log("formData.formData")
+  console.log(formData.formData)
+
   pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
-
+  
   const handleSubmit = () => {
     // Convert the form data into a JSON object
     const jsonData = {

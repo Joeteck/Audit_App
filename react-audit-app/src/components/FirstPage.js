@@ -1,8 +1,8 @@
-// src/components/FirstPage.js
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import automobileData from '../data';
+
 
 const PageContainer = styled.div`
   padding: 20px;
@@ -40,20 +40,24 @@ const CheckboxLabel = styled.label`
   margin-bottom: 5px;
 `;
 
+
 const FirstPage = () => {
+  const navigate = useNavigate();
+
   const [fullName, setFullName] = useState('');
   const [referenceCode, setReferenceCode] = useState('');
   const [email, setEmail] = useState('');
   const [selectedMaker, setSelectedMaker] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [carConditions, setCarConditions] = useState([]);
-  const history = useHistory();
 
   const makers = automobileData.map((item) => item.maker);
+  const selectedMakerData = automobileData.find((item) => item.maker === selectedMaker);
+  const models = selectedMakerData ? selectedMakerData.models : [];
 
   const handleNext = () => {
     // Perform data validation here
-    if (!fullName || !referenceCode || !email || !selectedMaker || !selectedModel || carConditions.length === 0) {
+    if (!fullName || !referenceCode || !email || !selectedMaker || !selectedModel) {
       alert('Please fill in all fields and select car conditions before proceeding.');
       return;
     }
@@ -81,9 +85,11 @@ const FirstPage = () => {
       selectedModel,
       carConditions,
     };
-    history.push({
-      pathname: '/summary',
-      state: formData,
+    console.log(formData)
+    navigate('/summary',{
+      state: {
+        formData
+      },
     });
   };
 
@@ -91,14 +97,43 @@ const FirstPage = () => {
     <PageContainer>
       <InputContainer>
         <Label>Full Name:</Label>
-        <Input
-          type="text"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-        />
+        <Input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} />
       </InputContainer>
-      {/* Implement other input fields and dropdowns */}
-      {/* ... */}
+
+      <InputContainer>
+        <Label>Reference Code:</Label>
+        <Input type="text" value={referenceCode} onChange={(e) => setReferenceCode(e.target.value)} />
+      </InputContainer>
+
+      <InputContainer>
+        <Label>Email Address:</Label>
+        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </InputContainer>
+
+      <InputContainer>
+        <Label>Car Maker:</Label>
+        <Dropdown value={selectedMaker} onChange={(e) => setSelectedMaker(e.target.value)}>
+          <option value="">Select Maker</option>
+          {makers.map((maker) => (
+            <option key={maker} value={maker}>
+              {maker}
+            </option>
+          ))}
+        </Dropdown>
+      </InputContainer>
+
+      <InputContainer>
+        <Label>Car Model:</Label>
+        <Dropdown value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}>
+          <option value="">Select Model</option>
+          {models.map((model) => (
+            <option key={model} value={model}>
+              {model}
+            </option>
+          ))}
+        </Dropdown>
+      </InputContainer>
+
       <InputContainer>
         <Label>Car Conditions:</Label>
         <CheckboxContainer>
@@ -116,10 +151,9 @@ const FirstPage = () => {
             />
             Engine issue
           </CheckboxLabel>
-          {/* Implement other checkboxes */}
-          {/* ... */}
         </CheckboxContainer>
       </InputContainer>
+
       <button onClick={handleNext}>Next</button>
     </PageContainer>
   );
