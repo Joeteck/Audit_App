@@ -21,16 +21,46 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column; 
   gap: 20px;
-  width: 98%;
+  width: 90%;
   height: fit-content;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom:200px;
 
 `;
-
+const HeaderContainer = styled.div`
+  margin-bottom: 100px;
+  padding-top: 20px; 
+  padding-left:50px;
+  display: flex;
+  flex-direction: column;
+  background-color:#800080;
+  width: 100%;
+  height: 100px;
+`;
+const Logo = styled.img`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+`;
+const Title = styled.h1`
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: medium;
+  text-align:center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+`;
+const Subtitle = styled.p`
+  color: #fff;
+  font-size: 18px;
+`;
 const SectionContainer = styled.div`
   padding: 20px;
-  width: 50%;
+  width: 40%;
   height: fit-content;
   border: 1px solid;
   border-image: linear-gradient(-60deg, #A851A5, #A42BA0, #800080, #9932CC, #BA55D3);
@@ -42,22 +72,16 @@ const SectionContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 80%;
-    margin: auto;
-    margin-top: 20px; /* Add some space between the header and the section container */
+    margin: 5px;
+    margin-top: 20px;
   }
 `;
-
-
-const HeaderContainer = styled.div`
-  margin-bottom: 50px;
-  padding-top: 20px; 
-  padding-left:50px;
-  display: flex;
-  flex-direction: column;
-  ${'' /* align-items: center; */}
-  background-color:#800080;
-  width: 100%;
-  height: 100px;
+const PageInfoContainer = styled.div`
+  margin: 0;
+  text-align: justify;
+`;
+const PageInfoParagraph = styled.p`
+  font-size: 18px;
 `;
 const HeadContainer = styled.div`
   display: flex;
@@ -65,31 +89,11 @@ const HeadContainer = styled.div`
   align-items: left;
   justify-content: center;
   margin-left: 30px;
+  ${'' /* background-color:#A42BA0; */}
+  ${'' /* background-image: linear-gradient(-200deg,#A851A5,#BA55D3, #9932CC, #A42BA0,  #800080 ); */}
+  ${'' /* background-image: linear-gradient(to bottom, #007bff, #00bfff, #66c2ff, #8AD0FF); */}
   width: 100%;
-  height: 150px; /* Adjust the height as needed */
-`;
-
-const Logo = styled.img`
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-`;
-
-const Title = styled.h1`
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  justify-content: medium;
-  text-align:center;
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-`;
-
-const Subtitle = styled.p`
-  color: #fff;
-  font-size: 18px;
+  height: 150px;
 `;
 const TitleContainer = styled.div`
   font-size: 24px;
@@ -98,19 +102,14 @@ const TitleContainer = styled.div`
   text-transform: uppercase;
   margin-bottom: 10px;
 `;
-
 const SubtitleContainer = styled.div`
   font-size: 18px;
   color:#A42BA0;
   `;
-
-
 const SummaryItem = styled.div`
   font-size: 20px;
   margin: 20px;
-  margin
 `;
-
 const Button = styled.button`
   background-color: ${primaryColor};
   color: ${whiteColor};
@@ -129,6 +128,40 @@ const Button = styled.button`
     background-color: ${secondaryColor};
   }
 `;
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the overlay is on top of other elements */
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  p {
+    text-align: center;
+  }
+`;
+const CancelButton = styled.button`
+  background-color: #fff;
+  color: #E939E9;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #E939E9;
+    color: #fff;
+  }
+`;
 const FooterContainer = styled.footer`
   width: 100%;
   display:flex;
@@ -142,10 +175,8 @@ const FooterContainer = styled.footer`
   text-align: center;
 `;
 const FooterText = styled.p`
-
   font-size: 14px;
 `;
-
 const FooterLink = styled.a`
   color: #E939E9;
   text-decoration: none;
@@ -161,4 +192,4 @@ const ErrorContainer = styled.div`
   font-size: 14px;
 `;
 
-export { PageContainer, SummaryItem, Button, ErrorContainer,SectionContainer, HeaderContainer, HeadContainer, TitleContainer, SubtitleContainer, Logo, Title, Subtitle, FooterContainer, FooterText, FooterLink};
+export { PageContainer, SummaryItem, Button, ErrorContainer,SectionContainer, HeaderContainer, HeadContainer, TitleContainer, SubtitleContainer, Logo, Title, Subtitle, FooterContainer, FooterText, FooterLink, Overlay, CancelButton };

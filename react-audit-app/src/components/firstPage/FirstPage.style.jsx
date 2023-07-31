@@ -15,18 +15,17 @@ const fadeInAnimation = keyframes`
     opacity: 1;
   }
 `;
-
 const PageContainer = styled.div`
   background-image: linear-gradient(to bottom, #FFFFFF, #F8FDFF, #F8FDFF, #F4FAFF);
   font-family: Nunito, sans-serif;
   display: flex;
   flex-direction: column; 
   gap: 20px;
-  width: 98%;
+  width: 90%;
   height: fit-content;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom:100px;
+  margin-bottom:200px;
 
 `;
 const HeaderContainer = styled.div`
@@ -35,19 +34,16 @@ const HeaderContainer = styled.div`
   padding-left:50px;
   display: flex;
   flex-direction: column;
-  ${'' /* align-items: center; */}
   background-color:#800080;
   width: 100%;
   height: 100px;
 `;
-
 const Logo = styled.img`
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
   margin-right: 20px;
 `;
-
 const Title = styled.h1`
   display: flex;
   flex-direction: row;
@@ -58,12 +54,10 @@ const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
 `;
-
 const Subtitle = styled.p`
   color: #fff;
   font-size: 18px;
 `;
-
 const SectionContainer = styled.div`
   padding: 20px;
   width: 40%;
@@ -79,10 +73,16 @@ const SectionContainer = styled.div`
   @media (max-width: 768px) {
     width: 80%;
     margin: auto;
-    margin-top: 20px; /* Add some space between the header and the section container */
+    margin-top: 20px;
   }
 `;
-
+const PageInfoContainer = styled.div`
+  margin: 0;
+  text-align: justify;
+`;
+const PageInfoParagraph = styled.p`
+  font-size: 18px;
+`;
 const HeadContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,9 +93,8 @@ const HeadContainer = styled.div`
   ${'' /* background-image: linear-gradient(-200deg,#A851A5,#BA55D3, #9932CC, #A42BA0,  #800080 ); */}
   ${'' /* background-image: linear-gradient(to bottom, #007bff, #00bfff, #66c2ff, #8AD0FF); */}
   width: 100%;
-  height: 150px; /* Adjust the height as needed */
+  height: 150px;
 `;
-
 const TitleContainer = styled.div`
   font-size: 24px;
   font-weight: bold;
@@ -103,7 +102,6 @@ const TitleContainer = styled.div`
   text-transform: uppercase;
   margin-bottom: 10px;
 `;
-
 const SubtitleContainer = styled.div`
   font-size: 18px;
   color:#A42BA0;
@@ -119,11 +117,8 @@ const Head = styled.div`
   border-radius: 50px;
   margin-top:50px
 `;
-
-
-
 const InputContainer = styled.div`
-  padding-top:50px
+  padding-top: 5px;
   margin-bottom: 20px;
   margin-left: 50px;
   width: 80%;
@@ -132,14 +127,12 @@ const InputContainer = styled.div`
     margin-left: 5px;
   }
 `;
-
 const Label = styled.label`
   margin-top: 30px;
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 `;
-
 const Input = styled.input`
   width: 100%;
   padding: 12px;
@@ -147,7 +140,6 @@ const Input = styled.input`
   border-radius: 4px;
   font-size: 16px;
 `;
-
 const Dropdown = styled.select`
   width: 100%;
   padding: 12px;
@@ -155,12 +147,10 @@ const Dropdown = styled.select`
   border-radius: 4px;
   font-size: 16px;
 `;
-
 const CheckboxContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 const CheckboxLabel = styled.label`
   margin-bottom: 5px;
   display: flex;
@@ -173,7 +163,6 @@ const CheckboxLabel = styled.label`
     margin-top:8px;
   }
 `;
-
 const Button = styled.button`
   background-color: ${primaryColor};
   color: ${whiteColor};
@@ -191,37 +180,10 @@ const Button = styled.button`
     background-color: ${secondaryColor};
   }
 `;
-const FooterContainer = styled.footer`
-  width: 100%;
-  display:flex;
-  position: fixed;
-  gap: 50vw;
-  bottom: 0;
-  background-color: #333;
-  color: #fff;
-  padding: 5px;
-  padding-left: 150px;
-  text-align: center;
-`;
-const FooterText = styled.p`
-
-  font-size: 14px;
-`;
-
-const FooterLink = styled.a`
-  color: #E939E9;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-
-  &:hover {
-    color: #800080;
-  }
-`;
 const ErrorContainer = styled.div`
   color: red;
   margin-top: 10px;
   font-size: 16px;
 `;
 
-
-export { PageContainer, InputContainer, Label, Input, Dropdown, CheckboxContainer, CheckboxLabel, Button, ErrorContainer, SubtitleContainer,HeaderContainer, SectionContainer, Head, HeadContainer, TitleContainer, Logo, Title, Subtitle, FooterContainer, FooterText, FooterLink };
+export { PageContainer, InputContainer, Label, Input, Dropdown, CheckboxContainer, CheckboxLabel, Button, ErrorContainer, SubtitleContainer,HeaderContainer, SectionContainer, Head, HeadContainer, TitleContainer, Logo, Title, Subtitle, PageInfoContainer,PageInfoParagraph};

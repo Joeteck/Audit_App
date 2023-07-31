@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { PageContainer, InputContainer, Label, Input, Dropdown, CheckboxContainer, CheckboxLabel, Button, ErrorContainer, SubtitleContainer,HeaderContainer,Head, SectionContainer, HeadContainer, TitleContainer, Logo, Title, Subtitle,FooterContainer, FooterText, FooterLink } from './FirstPage.style'
+import { PageContainer, InputContainer, Label, Input, Dropdown, CheckboxContainer, CheckboxLabel, Button, ErrorContainer, SubtitleContainer,HeaderContainer,Head, SectionContainer, HeadContainer, TitleContainer, Logo, Title, Subtitle, PageInfoContainer, PageInfoParagraph} from './FirstPage.style'
+
 import automobileData from '../../data';
 import ImageSlider from './../ImageSlider';
-import { block } from '../../assets/images'
+import { block } from '../../assets/images';
 
 const carConditionsList = [
   'Engine issue',
@@ -32,6 +33,7 @@ const FirstPage = () => {
   const models = selectedMakerData ? selectedMakerData.models : [];
 
   const handleCheckboxChange = (condition) => {
+    // Handle checkbox change, set car conditions.
     if (carConditions.includes(condition)) {
       setCarConditions(carConditions.filter((item) => item !== condition));
     } else {
@@ -77,7 +79,7 @@ const FirstPage = () => {
       },
     });
   };
-
+  
   return (
     <>
       <PageContainer>
@@ -85,7 +87,13 @@ const FirstPage = () => {
           <Title><Logo src={block} alt="Logo" /> Automobile Audit</Title>
           <Subtitle>Customer Information</Subtitle>
         </HeaderContainer>
+        <PageInfoContainer>
+          <PageInfoParagraph>
+          Our Car Audit Form is your key to understanding your vehicle inside out. Take advantage of this opportunity to delve into the health of your automobile and take proactive steps to keep it running smoothly. By using our form, you can gain insights into potential issues, plan for maintenance, and enhance the overall performance and longevity of your vehicle.
+          </PageInfoParagraph>
+        </PageInfoContainer>
         <SectionContainer>
+
         <ImageSlider />
 
           <HeadContainer>
@@ -98,17 +106,14 @@ const FirstPage = () => {
             <Label>Full Name:</Label>
             <Input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} />
           </InputContainer>
-
           <InputContainer>
             <Label>Reference Code:</Label>
             <Input type="text" value={referenceCode} onChange={(e) => setReferenceCode(e.target.value)} />
           </InputContainer>
-
           <InputContainer>
             <Label>Email Address:</Label>
             <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </InputContainer>
-
 
         </SectionContainer>
           <SectionContainer>
@@ -124,7 +129,6 @@ const FirstPage = () => {
               ))}
             </Dropdown>
           </InputContainer>
-
           <InputContainer>
             <Label>Car Model:</Label>
             <Dropdown value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}>
@@ -136,10 +140,8 @@ const FirstPage = () => {
               ))}
             </Dropdown>
           </InputContainer>
-
           <InputContainer>
             <Label>Car Conditions:</Label>
-
             <CheckboxContainer>
               {carConditionsList.map((condition) => (
                 <CheckboxLabel key={condition}>
@@ -156,17 +158,6 @@ const FirstPage = () => {
           <ErrorContainer>{error}</ErrorContainer> {/* Display the error message */}
           <Button onClick={handleNext}>Next</Button>
           </SectionContainer>
-        <FooterContainer>
-          <FooterText>
-            © {new Date().getFullYear()} Your Company Name. All rights reserved.
-          </FooterText>
-          <FooterText>
-            Made with <span role="img" aria-label="React">React</span> by {'Adeyoju Joel '}
-            <FooterLink href="https://github.com/joeteck" target="_blank" rel="noopener noreferrer">
-               Joeteck GitHub
-            </FooterLink>
-          </FooterText>
-        </FooterContainer>
       </PageContainer>
     </>
   );

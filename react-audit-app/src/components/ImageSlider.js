@@ -4,15 +4,17 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import styled from 'styled-components';
 import { car1, car2, car3, } from '../assets/images'
 
-
 const SliderContainer = styled.div`
   position: absolute;
   top: -105%;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 100vw;
   height: 30%;
   opacity: 0.5;
-  ${'' /* z-index: 1; */}
+
+  @media (max-width: 768px) {
+    top: -15%;
+}
 `;
 
 const ImageSlider = () => {

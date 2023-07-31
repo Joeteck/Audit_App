@@ -31,7 +31,6 @@ const automobileData = [
     maker: 'Mercedes-Benz',
     models: ['C-Class', 'E-Class', 'GLC', 'GLE', 'S-Class'],
   },
-  // Add more automobile makers and models as needed...
 ];
 
 export default automobileData;
