@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import FirstPage from './components/firstPage/FirstPage';
 import SecondPage from './components/secondPage/SecondPage';
 import styled from 'styled-components';
@@ -47,7 +47,7 @@ const FooterLink = styled.a`
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppContainer>
         <Routes>
           <Route index element={<FirstPage />} />
@@ -65,7 +65,7 @@ const App = () => {
           </FooterLink>
         </FooterText>
       </FooterContainer>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
